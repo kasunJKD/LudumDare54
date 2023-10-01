@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://b16luxqcp5eep"]
+
+[ext_resource type="PackedScene" uid="uid://dvamfjsanct8x" path="res://main.tscn" id="1_mph7t"]
+[ext_resource type="PackedScene" uid="uid://c38afjyvsyfic" path="res://Enemy.tscn" id="2_qgbrm"]
+[ext_resource type="Script" path="res://Levels/Surface.cs" id="3_s2k70"]
+[ext_resource type="Resource" uid="uid://vkj8iri72ibk" path="res://Sounds/Wood.tres" id="4_1trpi"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ukfls"]
+vertices = PackedVector3Array(-1.21821, 0.397467, 7.37593, -1.21821, 0.397467, 5.12593, -2.46821, 0.397467, 4.87593, -7.21821, 0.397467, 7.37593, -2.46821, 0.397467, -4.87407, -1.21821, 0.397467, -5.12407, -1.21821, 0.397467, -7.37407, -2.46821, 0.397467, -4.87407, -1.21821, 0.397467, -7.37407, -7.21821, 0.397467, -7.37407, -7.21821, 0.397467, -0.124067, -2.46821, 0.397467, 4.87593, -2.46821, 0.397467, -4.87407, -7.21821, 0.397467, -0.124067, -7.21821, 0.397467, 7.37593, -0.218208, 0.397467, 4.87593, -1.21821, 0.397467, 5.12593, -1.21821, 0.397467, 7.37593, 7.28179, 0.397467, 7.37593, -1.21821, 0.397467, -7.37407, -1.21821, 0.397467, -5.12407, -0.218208, 0.397467, -4.87407, -0.218208, 0.397467, 4.87593, 7.28179, 0.397467, 7.37593, 7.28179, 0.397467, -0.124067, -0.218208, 0.397467, -4.87407, 7.28179, 0.397467, -7.37407, -1.21821, 0.397467, -7.37407, -0.218208, 0.397467, -4.87407, 7.28179, 0.397467, -0.124067)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(21, 20, 19), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrl7e"]
+
+[node name="level1" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mph7t")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ukfls")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+use_collision = true
+size = Vector3(15.4364, 0.205065, 15.7481)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38738, 1.90434, 0)
+use_collision = true
+size = Vector3(1, 1, 9.13343)
+
+[node name="Enemy" parent="." instance=ExtResource("2_qgbrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3237, 0.102533, -0.0770056)
+
+[node name="Marker3D" type="Marker3D" parent="." groups=["EnemyWaypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88812, 0, -6.87646)
+
+[node name="Marker3D2" type="Marker3D" parent="." groups=["EnemyWaypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88812, 0, 4.70736)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999973, -0.00734777, 4.15313e-11, 0.00553229, 0.7529, 0.658111, -0.00483565, -0.658094, 0.752921, -0.143364, 5.61539, 0)
+shadow_enabled = true
+
+[node name="wood" type="CSGMesh3D" parent="."]
+transform = Transform3D(3.80118, 0, 0, 0, 0.0939085, 0, 0, 0, 6.46486, -4.69056, 0.115313, -3.55461)
+use_collision = true
+mesh = SubResource("BoxMesh_xrl7e")
+script = ExtResource("3_s2k70")
+SurfaceResource = ExtResource("4_1trpi")

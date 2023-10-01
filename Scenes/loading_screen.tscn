@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcneoq4fhi8hp"]
+
+[ext_resource type="Script" path="res://Scenes/loading_screen.cs" id="1_ibw6e"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ibw6e")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 85.0
+offset_top = 59.0
+offset_right = 368.0
+offset_bottom = 351.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 375.0
+offset_bottom = 148.0
+
+[node name="Loading" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Loading ...."
+
+[node name="LevelName" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 209.0
+offset_right = 369.0
+offset_bottom = 357.0
+
+[node name="Loading" type="Label" parent="Control/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Controls "
+
+[node name="Controls" type="Label" parent="Control/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -144.0
+offset_right = -54.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0

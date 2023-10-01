@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://vkj8iri72ibk"]
+
+[ext_resource type="Script" path="res://Scripts/SurfaceResource.cs" id="1_q06n7"]
+[ext_resource type="AudioStream" uid="uid://878wadfxnefg" path="res://Sounds/JumpLand.wav" id="1_y2det"]
+[ext_resource type="AudioStream" uid="uid://dyxrnpuxhypcy" path="res://Sounds/FootstepsOnWood.wav" id="2_4a1fa"]
+[ext_resource type="AudioStream" uid="uid://okoxrqkgb2u4" path="res://Sounds/FootstepsOnConcrete.wav" id="3_r85a6"]
+
+[resource]
+script = ExtResource("1_q06n7")
+NoiseLevel = 5
+JumpLandNoiseLevel = 10
+WalkStreamWAV = ExtResource("3_r85a6")
+JumpLandStreamWAV = ExtResource("1_y2det")
+SneakStreamWAV = ExtResource("2_4a1fa")
